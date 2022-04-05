@@ -1,0 +1,20 @@
+{
+  "name": "shriniwash",
+  "version": "1.0.0",
+  "description": "practise",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shriniwash",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "git": "^0.1.5",
+    "hbs": "^4.2.0",
+    "node-fetch": "^2.6.7",
+    "path": "^0.12.7",
+    "requests": "^0.3.0"
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card--weather sunny-day">
+            <div class="bg--illustration">
+                <div class="sun"></div>
+            </div>
+            <div class="icons" id="icons"><i class="fa fa-sun"></i>
+            </div>
+            <div class="condition" style="color: white; "><h2 id="sun">{{condition}}</h2></div>
+            <div class="location">
+                <div class="weather--indicator sun-indicator">{{temp}}&deg;C</div>
+                <h2>Birgunj</h2>
+                <h3 id="date">time</h3>
+                <h4>{{min}}&deg;C | {{max}}&deg;C</h4>
+                <p id="time"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        setInterval(myTimer, 1000);
+        function myTimer() {
+        const date = new Date();
+        document.getElementById("time").innerHTML = date.toLocaleTimeString();
+        }
+        var date = new Date();
+        document.getElementById('date').innerHTML= date.toLocaleDateString();
+        var sun = document.getElementById('sun').value;
+        if(sun == "clear"){
+            document.getElementById('icons').innerHTML="<i class='fa-solid fa-cloud'></i>";
+        }
+    </script>
+</body>
+
+
+</html>
