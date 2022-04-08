@@ -11,9 +11,9 @@
 <body>
     <div class="container" id="weather_div">
         <h2 id="weather_head">Check The Weather Condition Here</h2>
-        <form action="/" method="post">
-        {{!-- <input type="text" id="name" name="name" placeholder="Enter the city" autocomplete="off"><br> --}}
-        <a href="/weather" id="submit">Submit</a>
+        <form action="/weather" method="post">
+        <input type="text" id="name" name="name" placeholder="Enter the city" autocomplete="off"><br>
+        <input type="submit" name="submit" id="submit" value="submit">
         </form>
     </div>
 </body>

@@ -27,8 +27,30 @@ app.get("/",(req,res)=>{
 
 
 
-app.get("/weather",async(req,res)=>{
-    const api_url = "https://api.openweathermap.org/data/2.5/weather?q=birgunj&appid=9e8a30062b6e3f1bd0991be1850e5b66";
+// app.get("/weather",async(req,res)=>{
+//     const api_url = "https://api.openweathermap.org/data/2.5/weather?q=birgunj&appid=9e8a30062b6e3f1bd0991be1850e5b66";
+//     const fetch_response = await fetch(api_url);
+//     const json = await fetch_response.json();
+//     const arrayData = [json];
+//     temp = arrayData[0].main.temp-273;
+//     min = arrayData[0].main.temp_min-273;
+//     max = arrayData[0].main.temp_max-273;
+//     condition = arrayData[0].weather[0].main;
+//     res.render('weather',{
+//         min : min.toFixed(2),
+//         max : max.toFixed(2),
+//         condition: condition,
+//         temp : temp.toFixed(2)
+//     });
+// });
+
+app.get("/weather",(req,res)=>{
+    res.send("Please set the name of city first from the Home page");
+})
+
+app.post("/weather",urlencodedParser,async(req,res)=>{
+    Datas = req.body.name;
+    const api_url = `https://api.openweathermap.org/data/2.5/weather?q=${Datas}&appid=9e8a30062b6e3f1bd0991be1850e5b66`;
     const fetch_response = await fetch(api_url);
     const json = await fetch_response.json();
     const arrayData = [json];
@@ -36,19 +58,14 @@ app.get("/weather",async(req,res)=>{
     min = arrayData[0].main.temp_min-273;
     max = arrayData[0].main.temp_max-273;
     condition = arrayData[0].weather[0].main;
+    names = arrayData[0].name;
     res.render('weather',{
         min : min.toFixed(2),
         max : max.toFixed(2),
         condition: condition,
-        temp : temp.toFixed(2)
+        temp : temp.toFixed(2),
+        named : names,
     });
-});
-
-app.post("/weather",urlencodedParser,(req,res)=>{
-    Datas = req.body.name;
-    const arrData = [Datas];
-    Datas = arrData[0];
-    res.render('weather');
 });
 
 
